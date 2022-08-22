@@ -20,7 +20,7 @@ const checkWin = () => {
     win.forEach(e => {
         if ((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[2]].innerText === boxText[e[1]].innerText) && (boxText[e[0]].innerText !== "") ){
             document.querySelector('.gameinfo').innerText = boxText[e[0]].innerText + " won ";
-            gameOver = turn
+            gameOver = true
             document.querySelector('.imgbox').getElementsByTagName("img")[0].style.width="200px"
         }
     })
@@ -51,4 +51,7 @@ reset.addEventListener('click' , () => {
         element.innerText = ""
         document.querySelector('.imgbox').getElementsByTagName("img")[0].style.width="0px"
     })
+    turn = "x"
+    gameOver = false
+    document.getElementsByClassName("gameinfo")[0].innerText = "Turn For " + turn
 })
