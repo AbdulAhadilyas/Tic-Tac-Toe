@@ -12,16 +12,16 @@ const checkWin = () => {
         [3, 4, 5],
         [6, 7, 8],
         [0, 3, 6],
-        [1, 4, 7], 
+        [1, 4, 7],
         [2, 5, 8],
         [0, 4, 8],
         [2, 4, 6]
     ]
     win.forEach(e => {
-        if ((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[2]].innerText === boxText[e[1]].innerText) && (boxText[e[0]].innerText !== "") ){
+        if ((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[2]].innerText === boxText[e[1]].innerText) && (boxText[e[0]].innerText !== "")) {
             document.querySelector('.gameinfo').innerText = boxText[e[0]].innerText + " won ";
             gameOver = true
-            document.querySelector('.imgbox').getElementsByTagName("img")[0].style.width="200px"
+            document.querySelector('.imgbox').getElementsByTagName("img")[0].style.width = "200px"
         }
     })
 }
@@ -36,7 +36,7 @@ Array.from(boxs).forEach(element => {
             pressSound.play()
             turn = changeturn()
             checkWin()
-            if(!gameOver){
+            if (!gameOver) {
                 document.getElementsByClassName("gameinfo")[0].innerText = "Turn For " + turn
             }
         }
@@ -44,12 +44,11 @@ Array.from(boxs).forEach(element => {
 })
 
 let reset = document.getElementById('reset')
-
-reset.addEventListener('click' , () => {
+reset.addEventListener('click', () => {
     let boxTexts = document.querySelectorAll(".boxText")
     Array.from(boxTexts).forEach(element => {
         element.innerText = ""
-        document.querySelector('.imgbox').getElementsByTagName("img")[0].style.width="0px"
+        document.querySelector('.imgbox').getElementsByTagName("img")[0].style.width = "0px"
     })
     turn = "x"
     gameOver = false
